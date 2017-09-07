@@ -1,0 +1,6 @@
+{
+  "name": "CostCard",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./CostCard.js"
+}
