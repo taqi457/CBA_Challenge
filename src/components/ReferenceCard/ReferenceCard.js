@@ -34,8 +34,11 @@ const ReferenceCard = ({thirdParty, technician, saleValueOfToys, referenceHandle
                  <Label htmlFor="thirdParty">Third Party</Label>
                </Col>
                <Col xs="12" md="3">
+                 <InputGroup>
+                   <InputGroupAddon><i className="fa fa-dollar"></i></InputGroupAddon>
                  <Input type="number" id="thirdParty" value={thirdParty}
                    onChange={ (e) => referenceHandler(e.target.value, technician, saleValueOfToys)} name="toy2-amount" placeholder="Amount..."/>
+               </InputGroup>
                </Col>
              </FormGroup>
              <FormGroup row>
@@ -43,8 +46,11 @@ const ReferenceCard = ({thirdParty, technician, saleValueOfToys, referenceHandle
                  <Label htmlFor="technician">Technician</Label>
                </Col>
                <Col xs="12" md="3">
+                 <InputGroup>
+                   <InputGroupAddon><i className="fa fa-dollar"></i></InputGroupAddon>
                   <Input type="number" id="technician" value={technician}
                     onChange={ (e) => referenceHandler( thirdParty, e.target.value, saleValueOfToys)} name="toy2-amount" placeholder="Amount..."/>
+                </InputGroup>
                </Col>
              </FormGroup>
              <FormGroup row>
@@ -52,8 +58,11 @@ const ReferenceCard = ({thirdParty, technician, saleValueOfToys, referenceHandle
                  <Label htmlFor="saleValueOfToys"><strong>Sale Value of Toys</strong></Label>
                </Col>
                <Col xs="12" md="3">
-                  <Input type="number" id="saleValueOfToys" value={saleValueOfToys}
-                    onChange={ (e) => referenceHandler(thirdParty, technician, e.target.value) } name="toy2-amount" placeholder="Amount..."/>
+                 <InputGroup>
+                   <InputGroupAddon><i className="fa fa-dollar"></i></InputGroupAddon>
+                   <Input type="number" id="saleValueOfToys" value={saleValueOfToys}
+                      onChange={ (e) => referenceHandler(thirdParty, technician, e.target.value) } name="toy2-amount" placeholder="Amount..."/>
+                  </InputGroup>
                </Col>
              </FormGroup>
           </Form>

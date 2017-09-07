@@ -61,13 +61,13 @@ const CostCard = ({ toy1, toy2, profitHandler }) => (
                    <Col xs="6">
                      <InputGroup>
                        <InputGroupAddon><i className="fa fa-dollar"></i></InputGroupAddon>
-                       <Input type="number" id="toy1-defective-amount" value={toy1.defectiveAmount} name="toy1-defective-amount" readOnly/>
+                       <Input type="number" id="toy1-defective-amount" value={toy1.defectiveAmount} name="toy1-defective-amount" />
                      </InputGroup>
                    </Col>
                    <Col xs="6">
                      <InputGroup>
                        <InputGroupAddon><i className="fa fa-dollar"></i></InputGroupAddon>
-                       <Input type="number" id="toy2-defective-amount" value={toy2.defectiveAmount} name="toy2-defective-amount" readOnly/>
+                       <Input type="number" id="toy2-defective-amount" value={toy2.defectiveAmount} name="toy2-defective-amount" />
                      </InputGroup>
                    </Col>
                  </Row>
@@ -83,13 +83,13 @@ const CostCard = ({ toy1, toy2, profitHandler }) => (
                      <Col xs="6">
                        <InputGroup>
                          <InputGroupAddon><i className="fa fa-dollar"></i></InputGroupAddon>
-                         <Input type="number" value="5" id="toy1-material-cost" value={toy1.materialCostPerToy} name="toy1-material-cost" readOnly/>
+                         <Input type="number" value="5" id="toy1-material-cost" value={toy1.materialCostPerToy} name="toy1-material-cost" />
                        </InputGroup>
                      </Col>
                      <Col xs="6">
                        <InputGroup>
                          <InputGroupAddon><i className="fa fa-dollar"></i></InputGroupAddon>
-                         <Input type="number" id="toy2-material-cost" value={toy2.materialCostPerToy} name="toy2-material-cost" readOnly/>
+                         <Input type="number" id="toy2-material-cost" value={toy2.materialCostPerToy} name="toy2-material-cost" />
                        </InputGroup>
                      </Col>
                    </Row>
@@ -102,13 +102,13 @@ const CostCard = ({ toy1, toy2, profitHandler }) => (
                  <Col xs="12" md="6">
                    <Row>
                      <Col xs="6">
-                      <Input type="select" onChange={ (e) => profitHandler('toy1', 'assembler', e.target.value, toy1, toy2) } value={toy1.assembler} name="toy1-assembler" id="toy1-assembler">
+                      <Input type="select" onChange={ (e) => profitHandler('toy1', 'assembler', e.target.value, toy1) } value={toy1.assembler} name="toy1-assembler" id="toy1-assembler">
                         <option value="thirdParty">Third Party</option>
                         <option value="technician">Technician</option>
                       </Input>
                      </Col>
                      <Col xs="6">
-                       <Input type="select" onChange={ (e) => profitHandler('toy2', 'assembler', e.target.value, toy1, toy2) } value={toy2.assembler} name="toy2-assembler" id="toy2-assembler">
+                       <Input type="select" onChange={ (e) => profitHandler('toy2', 'assembler', e.target.value, toy2) } value={toy2.assembler} name="toy2-assembler" id="toy2-assembler">
                          <option value="thirdParty">Third Party</option>
                          <option value="technician">Technician</option>
                        </Input>
@@ -126,13 +126,13 @@ const CostCard = ({ toy1, toy2, profitHandler }) => (
                        <Col xs="6">
                          <InputGroup>
                            <InputGroupAddon><i className="fa fa-dollar"></i></InputGroupAddon>
-                           <Input type="number" id="toy1-test-cost" value={toy1.costPerTest} name="toy1-test-cost" readOnly/>
+                           <Input type="number" id="toy1-test-cost" value={toy1.costPerTest} name="toy1-test-cost" />
                          </InputGroup>
                        </Col>
                        <Col xs="6">
                          <InputGroup>
                            <InputGroupAddon><i className="fa fa-dollar"></i></InputGroupAddon>
-                           <Input type="number" id="toy2-test-cost" value={toy2.costPerTest} name="toy2-test-cost" readOnly/>
+                           <Input type="number" id="toy2-test-cost" value={toy2.costPerTest} name="toy2-test-cost" />
                          </InputGroup>
                        </Col>
                      </Row>
@@ -147,13 +147,13 @@ const CostCard = ({ toy1, toy2, profitHandler }) => (
                        <Col xs="6">
                          <InputGroup>
                            <InputGroupAddon><i className="fa fa-dollar"></i></InputGroupAddon>
-                           <Input type="number" id="toy1-annual-test-cost" value={toy1.annualCostOfTest} name="toy1-annual-test-cost" readOnly/>
+                           <Input type="number" id="toy1-annual-test-cost" value={toy1.annualCostOfTest} name="toy1-annual-test-cost" />
                          </InputGroup>
                        </Col>
                        <Col xs="6">
                          <InputGroup>
                            <InputGroupAddon><i className="fa fa-dollar"></i></InputGroupAddon>
-                           <Input type="number" id="toy2-annual-test-cost" value={toy2.annualCostOfTest} name="toy2-annual-test-cost" readOnly/>
+                           <Input type="number" id="toy2-annual-test-cost" value={toy2.annualCostOfTest} name="toy2-annual-test-cost" />
                          </InputGroup>
                        </Col>
                      </Row>
@@ -169,13 +169,13 @@ const CostCard = ({ toy1, toy2, profitHandler }) => (
                        <Col xs="6">
                          <InputGroup>
                            <InputGroupAddon><i className="fa fa-dollar"></i></InputGroupAddon>
-                           <Input type="number" id="toy1-labor-cost" value={toy1.costOfLaborPerToy} name="toy1-labor-cost" readOnly/>
+                           <Input type="number" id="toy1-labor-cost" value={toy1.costOfLaborPerToy} name="toy1-labor-cost" />
                          </InputGroup>
                        </Col>
                        <Col xs="6">
                          <InputGroup>
                            <InputGroupAddon><i className="fa fa-dollar"></i></InputGroupAddon>
-                           <Input type="number" id="toy2-labor-cost" value={toy2.costOfLaborPerToy} name="toy2-labor-cost" readOnly/>
+                           <Input type="number" id="toy2-labor-cost" value={toy2.costOfLaborPerToy} name="toy2-labor-cost" />
                          </InputGroup>
                        </Col>
                      </Row>
@@ -190,13 +190,13 @@ const CostCard = ({ toy1, toy2, profitHandler }) => (
                        <Col xs="6">
                          <InputGroup>
                            <InputGroupAddon><i className="fa fa-dollar"></i></InputGroupAddon>
-                           <Input type="number" id="toy1-annual-labor-cost" value={toy1.annualLaborCost} name="toy1-annual-labor-cost" readOnly/>
+                           <Input type="number" id="toy1-annual-labor-cost" value={toy1.annualLaborCost} name="toy1-annual-labor-cost" />
                          </InputGroup>
                        </Col>
                        <Col xs="6">
                          <InputGroup>
                            <InputGroupAddon><i className="fa fa-dollar"></i></InputGroupAddon>
-                           <Input type="number" id="toy2-annual-labor-cost" value={toy2.annualLaborCost} name="toy2-annual-labor-cost" readOnly/>
+                           <Input type="number" id="toy2-annual-labor-cost" value={toy2.annualLaborCost} name="toy2-annual-labor-cost" />
                          </InputGroup>
                        </Col>
                      </Row>
@@ -212,13 +212,13 @@ const CostCard = ({ toy1, toy2, profitHandler }) => (
                        <Col xs="6">
                          <InputGroup>
                            <InputGroupAddon><i className="fa fa-dollar"></i></InputGroupAddon>
-                           <Input type="number" id="toy1-number-of-defective-toys" value={toy1.numberOfAnnualDefectiveToys} name="toy1-number-of-defective-toys" readOnly/>
+                           <Input type="number" id="toy1-number-of-defective-toys" value={toy1.numberOfAnnualDefectiveToys} name="toy1-number-of-defective-toys" />
                          </InputGroup>
                        </Col>
                        <Col xs="6">
                          <InputGroup>
                            <InputGroupAddon><i className="fa fa-dollar"></i></InputGroupAddon>
-                           <Input type="number" id="toy2-number-of-defective-toys" value={toy2.numberOfAnnualDefectiveToys} name="toy2-number-of-defective-toys" readOnly/>
+                           <Input type="number" id="toy2-number-of-defective-toys" value={toy2.numberOfAnnualDefectiveToys} name="toy2-number-of-defective-toys" />
                          </InputGroup>
                        </Col>
                      </Row>
@@ -233,13 +233,13 @@ const CostCard = ({ toy1, toy2, profitHandler }) => (
                        <Col xs="6">
                          <InputGroup>
                            <InputGroupAddon><i className="fa fa-dollar"></i></InputGroupAddon>
-                           <Input type="number" id="toy1-sales-lost-from-defective-toys" value={toy1.salesLostFromDefectiveToys} name="toy1-sales-lost-from-defective-toys" readOnly/>
+                           <Input type="number" id="toy1-sales-lost-from-defective-toys" value={toy1.salesLostFromDefectiveToys} name="toy1-sales-lost-from-defective-toys" />
                          </InputGroup>
                        </Col>
                        <Col xs="6">
                          <InputGroup>
                            <InputGroupAddon><i className="fa fa-dollar"></i></InputGroupAddon>
-                           <Input type="number" id="toy2-sales-lost-from-defective-toys" value={toy2.salesLostFromDefectiveToys} name="toy2-sales-lost-from-defective-toys" readOnly/>
+                           <Input type="number" id="toy2-sales-lost-from-defective-toys" value={toy2.salesLostFromDefectiveToys} name="toy2-sales-lost-from-defective-toys" />
                          </InputGroup>
                        </Col>
                      </Row>
@@ -253,10 +253,10 @@ const CostCard = ({ toy1, toy2, profitHandler }) => (
                    <Col xs="12" md="6">
                      <Row>
                        <Col xs="6">
-                         <Input type="number" id="toy1-total-functional" value={toy1.totalFunctionalToys} name="toy1-total-functional" readOnly/>
+                         <Input type="number" id="toy1-total-functional" value={toy1.totalFunctionalToys} name="toy1-total-functional" />
                        </Col>
                        <Col xs="6">
-                         <Input type="number" id="toy2-total-functional" value={toy2.totalFunctionalToys} name="toy2-total-functional" readOnly/>
+                         <Input type="number" id="toy2-total-functional" value={toy2.totalFunctionalToys} name="toy2-total-functional" />
                        </Col>
                      </Row>
                    </Col>
@@ -270,13 +270,13 @@ const CostCard = ({ toy1, toy2, profitHandler }) => (
                        <Col xs="6">
                          <InputGroup>
                            <InputGroupAddon><i className="fa fa-dollar"></i></InputGroupAddon>
-                           <Input type="number" id="toy1-total-sale-value" value={toy1.totalSalesValue} name="toy1-total-sale-value" readOnly/>
+                           <Input type="number" id="toy1-total-sale-value" value={toy1.totalSalesValue} name="toy1-total-sale-value" />
                          </InputGroup>
                        </Col>
                        <Col xs="6">
                          <InputGroup>
                            <InputGroupAddon><i className="fa fa-dollar"></i></InputGroupAddon>
-                           <Input type="number" id="toy2-total-sale-value" value={toy2.totalSalesValue} name="toy2-total-sale-value" readOnly/>
+                           <Input type="number" id="toy2-total-sale-value" value={toy2.totalSalesValue} name="toy2-total-sale-value" />
                          </InputGroup>
                        </Col>
                      </Row>
@@ -291,13 +291,13 @@ const CostCard = ({ toy1, toy2, profitHandler }) => (
                        <Col xs="6">
                          <InputGroup>
                            <InputGroupAddon><i className="fa fa-dollar"></i></InputGroupAddon>
-                           <Input type="number" id="toy1-total-sales" value={toy1.totalSales} name="toy1-total-sales" readOnly/>
+                           <Input type="number" id="toy1-total-sales" value={toy1.totalSales} name="toy1-total-sales" />
                          </InputGroup>
                        </Col>
                        <Col xs="6">
                          <InputGroup>
                            <InputGroupAddon><i className="fa fa-dollar"></i></InputGroupAddon>
-                           <Input type="number" id="toy2-total-sales" value={toy2.totalSales} name="toy2-total-sales" readOnly/>
+                           <Input type="number" id="toy2-total-sales" value={toy2.totalSales} name="toy2-total-sales" />
                          </InputGroup>
                        </Col>
                      </Row>
@@ -312,13 +312,13 @@ const CostCard = ({ toy1, toy2, profitHandler }) => (
                        <Col xs="6">
                          <InputGroup>
                            <InputGroupAddon><i className="fa fa-dollar"></i></InputGroupAddon>
-                           <Input type="number" id="toy1-total-profits" value={toy1.totalProfits} name="toy1-total-profits" readOnly/>
+                           <Input type="number" id="toy1-total-profits" value={toy1.totalProfits} name="toy1-total-profits" />
                          </InputGroup>
                        </Col>
                        <Col xs="6">
                          <InputGroup>
                            <InputGroupAddon><i className="fa fa-dollar"></i></InputGroupAddon>
-                           <Input type="number" id="toy2-total-profits" value={toy2.totalProfits} name="toy2-total-profits" readOnly/>
+                           <Input type="number" id="toy2-total-profits" value={toy2.totalProfits} name="toy2-total-profits" />
                          </InputGroup>
                        </Col>
                      </Row>

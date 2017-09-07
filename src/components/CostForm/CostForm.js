@@ -11,9 +11,10 @@ class CostForm extends Component {
       this.state = {
         toy1: {
           amount: 2000,
+          defectiveRate: .10,
           defectiveAmount:200,
           materialCostPerToy: 5.00,
-          assembler: 'ThirdParty',
+          assembler: 'thirdParty',
           costPerTest: 5,
           annualCostOfTest: 10000,
           costOfLaborPerToy: 3.00,
@@ -27,9 +28,10 @@ class CostForm extends Component {
         },
         toy2: {
           amount: 2500,
+          defectiveRate: .15,
           defectiveAmount: 375,
           materialCostPerToy: 5.50,
-          assembler: 'Technician',
+          assembler: 'technician',
           costPerTest: 6.00,
           annualCostOfTest: 13750,
           costOfLaborPerToy: 10.00,
@@ -45,44 +47,76 @@ class CostForm extends Component {
         technician: 10.00,
         saleValueOfToys: 65.00,
         bar: {
-          labels: ['toys1'],
+          labels: ['Profits'],
           datasets: [
             {
-              label: 'My First dataset',
+              label: 'Toy 1',
               backgroundColor: 'rgba(40,180,180,0.1)',
               borderColor: 'rgba(40,180,180,1)',
               borderWidth: 1,
               hoverBackgroundColor: 'rgba(40,180,180,.4)',
               hoverBorderColor: 'rgba(40,180,180,1)',
-              data: [65, 59, 80, 81, 56, 55, 40]
+              data: [88000]
+            },
+            {
+              label: 'Toy 2',
+              backgroundColor: 'rgba(40,220,30,0.1)',
+              borderColor: 'rgba(40,220,30,1)',
+              borderWidth: 1,
+              hoverBackgroundColor: 'rgba(40,220,30,.4)',
+              hoverBorderColor: 'rgba(40,220,30,1)',
+              data: [75000]
             }
           ]
         }
       };
       this.profitHandler = this.profitHandler.bind(this);
       this.referenceHandler = this.referenceHandler.bind(this);
-      this.calcReport = this.calcReport.bind(this);
+      this.calcBar = this.calcBar.bind(this);
   }
 
-  calcReport(toy1, toy2, thirdParty, technician, saleValueOfToys) {
-
+  calcBar(toy1, toy2) {
+    let newBar = {...this.state.bar};
+    newBar.datasets[0].data[0] = toy1.totalProfits;
+    newBar.datasets[1].data[0] = toy2.totalProfits;
+    console.log(newBar);
+    this.setState({
+      bar: newBar
+    });
   }
 
-  profitHandler(toy, element, value, toyElement) {
-    let newToy = {...toyElement};
-    newToy[element] = value;
-    console.log("newToy", newToy);
+  calcToy(toy, saleValueOfToys) {
+    let newToy = {...toy};
+    newToy.defectiveAmount = newToy.amount * newToy.defectiveRate;
+    newToy.annualCostOfTest = newToy.amount * newToy.costPerTest;
+    newToy.annualLaborCost = newToy.amount * newToy.costOfLaborPerToy;
+    newToy.numberOfAnnualDefectiveToys = newToy.defectiveAmount;
+    newToy.salesLostFromDefectiveToys = newToy.numberOfAnnualDefectiveToys * saleValueOfToys;
+    newToy.totalFunctionalToys = newToy.amount - newToy.numberOfAnnualDefectiveToys;
+    newToy.totalSalesValue = newToy.totalFunctionalToys * saleValueOfToys;
+    newToy.totalSales = newToy.totalSalesValue - newToy.salesLostFromDefectiveToys;
+    newToy.totalProfits = newToy.totalSales - newToy.annualLaborCost - newToy.annualCostOfTest;
+    return newToy;
+  }
+
+  profitHandler(toy, element, value, toyElement, reference) {
+    toyElement[element] = value;
     if(element == 'assembler') {
-      newToy['costOfLaborPerToy'] = this.state[value];
+      toyElement['costOfLaborPerToy'] = reference ? reference[value] : this.state[value];
+      console.log(toyElement.costOfLaborPerToy);
     }
     if(toy == 'toy1') {
+      let newToy = this.calcToy(toyElement, this.state.saleValueOfToys);
       this.setState({
         toy1: newToy
-      })
+      });
+      this.calcBar(newToy, this.state.toy2);
     } else {
+      let newToy = this.calcToy(toyElement, this.state.saleValueOfToys);
       this.setState({
         toy2: newToy
       })
+      this.calcBar(this.state.toy1, newToy);
     }
   }
 
@@ -92,16 +126,19 @@ class CostForm extends Component {
       technician: technician,
       saleValueOfToys: saleValueOfToys
     });
+    this.profitHandler('toy1', 'assembler', this.state.toy1.assembler, this.state.toy1, {thirdParty, technician});
+    this.profitHandler('toy2', 'assembler', this.state.toy2.assembler, this.state.toy2, {thirdParty, technician});
+
   }
 
   render() {
     return (
       <div className="animated fadeIn">
         <Row>
-          <Col xs="12" sm="6">
+          <Col xs="12" sm="7">
             <CostCard toy1={this.state.toy1} toy2={this.state.toy2} profitHandler={this.profitHandler}/>
           </Col>
-          <Col xs="12" sm="6">
+          <Col xs="12" sm="5">
             <ReferenceCard
               thirdParty={this.state.thirdParty}
               technician={this.state.technician}
@@ -115,8 +152,16 @@ class CostForm extends Component {
                 <div className="chart-wrapper">
                   <Bar
                     data={this.state.bar}
+                    redraw={true}
                     options={{
-                      maintainAspectRatio: false
+                      maintainAspectRatio: false,
+                      scales: {
+                          yAxes: [{
+                            ticks: {
+                              stepSize: 10000
+                            }
+                          }]
+                      }
                     }}
                   />
                 </div>
